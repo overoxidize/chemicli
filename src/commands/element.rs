@@ -1,31 +1,25 @@
-use clap::{Parser, Args, Subcommand};
+use clap::{Args, Parser, Subcommand};
 
 #[derive(Debug, Parser)]
 pub struct ElementCommands {
     #[clap(subcommand)]
-    pub element_args: ElementArgs
+    pub element_args: ElementArgs,
 }
 
 #[derive(Debug, Subcommand, Clone)]
 pub enum ElementArgs {
     #[clap(alias = "atn")]
-    AtmNum {
-        atmn: String
-    },
+    AtmNum { atmn: String },
     #[clap(alias = "sym")]
-    Symbol {
-        sym: String
-    }
+    Symbol { sym: String },
 }
-
 
 #[derive(Args, Debug, Clone)]
 
 pub struct Atmn {
-    pub atm_n: String
+    pub atm_n: String,
 }
 #[derive(Args, Debug, Clone)]
 pub struct ElementSymbol {
-    pub sym: String
+    pub sym: String,
 }
-

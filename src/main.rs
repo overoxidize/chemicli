@@ -1,11 +1,16 @@
-use clap::{Arg, Args, Parser, Subcommand};
-use std::{collections::HashMap};
 use chemicli::commands::element::*;
-use chemicli::commands::metals::Metals;
 use chemicli::commands::metalloids::Metalloids;
+use chemicli::commands::metals::Metals;
 use chemicli::commands::non_metals::NonMetals;
+use clap::{Arg, Args, Parser, Subcommand};
+use std::collections::HashMap;
 #[derive(Debug, Parser)]
-#[clap(name = "chemicli", author, version, about = "A CLI for learning about chemistry")]
+#[clap(
+    name = "chemicli",
+    author,
+    version,
+    about = "A CLI for learning about chemistry"
+)]
 pub struct Chemicli {
     #[clap(subcommand)]
     pub command: Commands,
@@ -15,9 +20,7 @@ pub struct Chemicli {
 pub enum Commands {
     /// Provides information about a specific element
     #[clap(alias = "eln")]
-    ElementName {
-        name: String
-    },
+    ElementName { name: String },
     #[clap(alias = "ele")]
     Element(ElementCommands),
     #[clap(alias = "met")]
@@ -31,7 +34,6 @@ pub enum Commands {
     Metalloids(Metalloids),
 }
 
-
 fn main() {
     let symbol_map: HashMap<String, ElementInfo> = HashMap::new();
     struct ElementInfo;
@@ -43,18 +45,16 @@ fn main() {
             let mut arg_vec: Vec<String> = Vec::new();
             println!("First arg is {:?}", query_type[1]);
             arg_vec.push(query_type[1].clone());
-            match element_commands {
-                ElementCommands { element_args } => {
-                    match element_args {
-                        ElementArgs::AtmNum { atmn } => {
-                            println!("{:?}", atmn);
-                        }
-                        ElementArgs::Symbol { sym } => {
-                            println!("{:?}", sym);
-                        }
+            let ElementCommands { element_args } = element_commands;
+            match element_args {
+                ElementArgs::AtmNum { atmn } => {
+                    println!("{:?}", atmn);
+                }
+                ElementArgs::Symbol { sym } => {
+                    if symbol_map.contains_key(&sym) {
+                        todo!()
                     }
-                    
-
+                    println!("{:?}", sym);
                 }
             }
         }
@@ -71,5 +71,4 @@ fn main() {
             todo!()
         }
     }
-
 }
