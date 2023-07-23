@@ -1,15 +1,21 @@
 use clap::{Parser, Args, Subcommand};
 
 #[derive(Debug, Parser)]
-pub struct ElementArgs {
+pub struct ElementCommands {
     #[clap(subcommand)]
-    pub element_commands: ElementCommands
+    pub element_args: ElementArgs
 }
 
 #[derive(Debug, Subcommand, Clone)]
-pub enum ElementCommands {
+pub enum ElementArgs {
     #[clap(alias = "atn")]
-    AtmNum(Atmn)
+    AtmNum {
+        atmn: String
+    },
+    #[clap(alias = "sym")]
+    Symbol {
+        sym: String
+    }
 }
 
 
@@ -18,6 +24,7 @@ pub enum ElementCommands {
 pub struct Atmn {
     pub atm_n: String
 }
+#[derive(Args, Debug, Clone)]
 pub struct ElementSymbol {
     pub sym: String
 }

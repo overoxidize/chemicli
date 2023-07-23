@@ -9,19 +9,17 @@ use chemicli::commands::non_metals::NonMetals;
 pub struct Chemicli {
     #[clap(subcommand)]
     pub command: Commands,
-    #[clap(alias = "ele")]
-    pub element: String
 }
 
 #[derive(Subcommand, Debug)]
 pub enum Commands {
     /// Provides information about a specific element
-    Element {
-        symbol: String,
-        #[clap(alias = "atn")]
-        atomic_number: Option<String>,
-        // args: Option<ElementArgs>
+    #[clap(alias = "eln")]
+    ElementName {
+        name: String
     },
+    #[clap(alias = "ele")]
+    Element(ElementCommands),
     #[clap(alias = "met")]
     /// Provides a list of elements categorized as metals
     Metals(Metals),
@@ -31,9 +29,6 @@ pub enum Commands {
     /// Provides a list of elements categorized as metalloids
     #[clap(alias = "mtlo")]
     Metalloids(Metalloids),
-
-
-
 }
 
 
@@ -43,22 +38,28 @@ fn main() {
     let chemicli = Chemicli::parse();
 
     match chemicli.command {
-        Commands::Element{ symbol, atomic_number} => {
-            // let ele_cmd = element_commands;
+        Commands::Element(element_commands) => {
             let query_type: Vec<String> = std::env::args().collect();
             let mut arg_vec: Vec<String> = Vec::new();
             println!("First arg is {:?}", query_type[1]);
             arg_vec.push(query_type[1].clone());
-            // match ele_cmd {
-            //     ElementCommands::Symbol(ElementSymbol { sym }) => {
-            //         if symbol_map.contains_key(&sym) {
-            //             arg_vec.push(sym)
-            //         }
-            //     }
-            //     ElementCommands::AtmNum(Atmn { atm_n}) => {
+            match element_commands {
+                ElementCommands { element_args } => {
+                    match element_args {
+                        ElementArgs::AtmNum { atmn } => {
+                            println!("{:?}", atmn);
+                        }
+                        ElementArgs::Symbol { sym } => {
+                            println!("{:?}", sym);
+                        }
+                    }
+                    
 
-            //     }
-            // }
+                }
+            }
+        }
+        Commands::ElementName { name } => {
+            todo!()
         }
         Commands::Metals(_) => {
             todo!()
