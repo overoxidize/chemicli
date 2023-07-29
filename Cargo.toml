@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.3.17", features = ["derive"] }
+mendeleev = "0.8.0"
+num = "0.4.1"
+uom = "0.35.0"
