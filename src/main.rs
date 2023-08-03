@@ -16,9 +16,9 @@ struct ElementInfo {
 #[derive(Debug, Parser)]
 #[clap(
     name = "chemicli",
-    author,
+    author = "Lorenzo Evans <lorenzo.evans94@gmail.com>",
     version,
-    about = "A CLI for learning about chemistry"
+    about = "A CLI for querying the periodic table of elements."
 )]
 pub struct Chemicli {
     #[clap(subcommand)]

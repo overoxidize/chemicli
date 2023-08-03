@@ -29,3 +29,7 @@ Run `git clone https://github.com/overoxidize/chemicli.git` in your terminal to 
 * ### Query for specific properties of an element:
   * `chem ele "<AtomicSymbol>" property_1 | property_1 property_3`, which will print the values of the requested properties of the queried element to your terminal.
     
+## Roadmap
+
+* Add `mtl` command, i.e `chem mtl ...`, to query about metals.
+  * Add `sg` (subgroup) subcommand, i.e `chem mtl -sg` for a list of sub-groups of metals, such as alkali earth metals, and lanthanides.
