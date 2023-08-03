@@ -6,9 +6,7 @@ use clap::{Arg, Args, Parser, Subcommand, Command};
 use std::collections::HashMap;
 
 
-// /// Type alias for a HashMap associating elements with their known properties and subsequent values.
-// type ElementMap = HashMap<AtomicSymbol, Element>;
-// type Element = HashMap<ElementName, ElementValue>;
+/// Type alias for a HashMap associating elements with their known properties and subsequent values.
 
 type SymbolMap = HashMap<String, Option<ElementInfo>>;
 /// Newtype wrapping the atomic symbol of a given element.
@@ -16,42 +14,7 @@ type SymbolMap = HashMap<String, Option<ElementInfo>>;
 struct ElementInfo {
     atmn: Option<u8>
 }
-#[derive(PartialEq, Eq, Hash, Debug, Clone)]
-struct AtomicSymbol(String);
-#[derive(PartialEq, Eq, Hash, Debug, Clone)]
 
-/// Newtype wrapping the energy levels of a given element.
-struct EnergyLevels(Vec<u8>);
-
-#[derive(PartialEq, Debug, Clone)]
-struct AtomicWeight(f32);
-
-/// Newtype wrapping the atomic number of a given element.
-#[derive(PartialEq, Eq, Hash, Debug, Clone)]
-struct AtomicNumber(u8);
-
-/// Struct representing a given element of the periodic table.
-/// Several fields of an ElementValue struct are newtypes, in
-/// order to make sure that the semantics are more thoroughly
-/// aligned with the presentation of the periodic table.
-
-#[derive(PartialEq, Debug, Clone)]
-struct ElementValue {
-    atomic_number: AtomicNumber,
-    atomic_weight: AtomicWeight,
-    energy_levels: EnergyLevels,
-    element_name: ElementName,
-
-}
-
-/// Newtype wrapping the name of a given element of the periodic table.
-#[derive(PartialEq, Eq, Hash, Clone, Debug)]
-struct ElementName(pub String);
-
-enum ElementProperties {
-    AtomicNumber(AtomicNumber),
-    AtomicWeight(AtomicWeight)
-}
 #[derive(Debug, Parser)]
 #[clap(
     name = "chemicli",
@@ -119,7 +82,7 @@ fn main() {
     let mut symbol_map: HashMap<String, ElementInfo> = HashMap::new();
 
     let hydrogen = ElementInfo {
-        atmn: 1
+        atmn: Some(1)
     };
 
 
@@ -138,7 +101,7 @@ fn main() {
 
                 match &props[..] {
                     [atmn] => {
-                        let atmn = atmn.unwrap().clone();
+                        let atmn = atmn.as_ref().unwrap();
                         let symbol_map = symbol_mapper(query_element, vec![String::from(atmn)]);
                     }
                     [atmn, atw] => {
