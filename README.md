@@ -1,4 +1,4 @@
-# 🗑 chemicli
+# chemicli
 
 
 ## About
