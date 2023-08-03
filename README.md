@@ -13,7 +13,7 @@
 
 ## Installation
 
-#### Run `git clone https://github.com/overoxidize/chemicli.git` in your terminal to install it.
+Run `git clone https://github.com/overoxidize/chemicli.git` in your terminal to install it.
 
 
 
