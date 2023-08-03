@@ -24,7 +24,7 @@
     * #### Atomic Number
     * #### Atomic Weight
     * #### Energy Levels
-    * #### Element NAme
+    * #### Element Name
 
 * ### Query for specific properties of an element:
   * `chem ele "<AtomicSymbol>" property_1 | property_1 property_3`, which will print the values of the requested properties of the queried element to your terminal.
