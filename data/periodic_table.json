@@ -1,0 +1,112 @@
+{
+  "H": {
+    "atomic_number": 1,
+    "atomic_weight": 1.008,
+    "energy_levels": ["1s1"],
+    "series": "Nonmetal",
+    "electronegativity": 2.20,
+    "date_discovered": "1766",
+    "discoverer": "Henry Cavendish",
+    "group": 1,
+    "period": 1
+  },
+  "He": {
+    "atomic_number": 2,
+    "atomic_weight": 4.0026,
+    "energy_levels": ["1s2"],
+    "series": "Noble Gas",
+    "electronegativity": null,
+    "date_discovered": "1895",
+    "discoverer": "Sir William Ramsay",
+    "group": 18,
+    "period": 1
+  },
+  "Li": {
+    "atomic_number": 3,
+    "atomic_weight": 6.94,
+    "energy_levels": ["1s2", "2s1"],
+    "series": "Alkali Metal",
+    "electronegativity": 0.98,
+    "date_discovered": "1817",
+    "discoverer": "Johan August Arfwedson",
+    "group": 1,
+    "period": 2
+  },
+  "Be": {
+    "atomic_number": 4,
+    "atomic_weight": 9.0122,
+    "energy_levels": ["1s2", "2s2"],
+    "series": "Alkaline Earth Metal",
+    "electronegativity": 1.57,
+    "date_discovered": "1798",
+    "discoverer": "Louis-Nicolas Vauquelin",
+    "group": 2,
+    "period": 2
+  },
+  "B": {
+    "atomic_number": 5,
+    "atomic_weight": 10.81,
+    "energy_levels": ["1s2", "2s2", "2p1"],
+    "series": "Metalloid",
+    "electronegativity": 2.04,
+    "date_discovered": "1808",
+    "discoverer": "Joseph Louis Gay-Lussac",
+    "group": 13,
+    "period": 2
+  },
+  "C": {
+    "atomic_number": 6,
+    "atomic_weight": 12.011,
+    "energy_levels": ["1s2", "2s2", "2p2"],
+    "series": "Nonmetal",
+    "electronegativity": 2.55,
+    "date_discovered": "Ancient",
+    "discoverer": "Known to the ancients",
+    "group": 14,
+    "period": 2
+  },
+  "N": {
+    "atomic_number": 7,
+    "atomic_weight": 14.007,
+    "energy_levels": ["1s2", "2s2", "2p3"],
+    "series": "Nonmetal",
+    "electronegativity": 3.04,
+    "date_discovered": "1772",
+    "discoverer": "Daniel Rutherford",
+    "group": 15,
+    "period": 2
+  },
+  "O": {
+    "atomic_number": 8,
+    "atomic_weight": 15.999,
+    "energy_levels": ["1s2", "2s2", "2p4"],
+    "series": "Nonmetal",
+    "electronegativity": 3.44,
+    "date_discovered": "1774",
+    "discoverer": "Joseph Priestley and Carl Wilhelm Scheele",
+    "group": 16,
+    "period": 2
+  },
+  "F": {
+    "atomic_number": 9,
+    "atomic_weight": 18.998,
+    "energy_levels": ["1s2", "2s2", "2p5"],
+    "series": "Halogen",
+    "electronegativity": 3.98,
+    "date_discovered": "1886",
+    "discoverer": "Henri Moissan",
+    "group": 17,
+    "period": 2
+  },
+  "Ne": {
+    "atomic_number": 10,
+    "atomic_weight": 20.180,
+    "energy_levels": ["1s2", "2s2", "2p6"],
+    "series": "Noble Gas",
+    "electronegativity": null,
+    "date_discovered": "1898",
+    "discoverer": "Sir William Ramsay and Morris M. Travers",
+    "group": 18,
+    "period": 2
+  }
+}
