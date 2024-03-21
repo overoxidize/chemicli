@@ -1,6 +1,6 @@
 use clap::{Args, Parser, Subcommand};
 
-#[derive(Debug, Parser)]
+#[derive(Debug, Parser, Clone)]
 pub struct Metals {
     #[clap(subcommand)]
     pub metals_commands: MetalsCommands,
