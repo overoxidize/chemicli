@@ -1,13 +1,6 @@
-use clap::{Args, Parser, Subcommand};
+// use clap::{Args, Subcommand};
 
-#[derive(Debug, Parser, Clone)]
-pub struct Metals {
-    #[clap(subcommand)]
-    pub metals_commands: MetalsCommands,
-}
-
-#[derive(Debug, Clone, Subcommand)]
-pub enum MetalsCommands {
-    #[clap(alias = "num")]
-    Number,
-}
+// #[derive(Debug, Clone, Subcommand)]
+// pub enum MetalsCommands {
+//     Alkali(AlkaliMetalsArgs)
+// }
