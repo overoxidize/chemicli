@@ -3,7 +3,7 @@
 
 ## About
 
-#### chemicli is A CLI for getting information about the periodic table of elements, with information somewhat based on the information on [PTable](https://ptable.com/#Properties), hence some measurements may not be the most precise in terms of the known values for certain properties, i.e the standard atomic weight of hydrogen is `[1.00784, 1.00811]`, but is `1.008` on PTable.
+#### ChemiCLI is A CLI for getting information about the periodic table of elements, with information somewhat based on the information on [PTable](https://ptable.com/#Properties), hence some measurements may not be the most precise in terms of the known values for certain properties, i.e the standard atomic weight of hydrogen is `[1.00784, 1.00811]`, but is `1.008` on PTable.
 
 ## Getting Started
 
@@ -13,21 +13,7 @@ To install ChemiCLI, you'll need to have Rust and Cargo installed. If you don't 
 
 Run `git clone https://github.com/overoxidize/chemicli.git` in your terminal to install it.
 
----
-
-# ChemiCLI
-
-ChemiCLI is a command-line interface (CLI) application written in Rust for querying information about chemical elements from the periodic table.
-
-## Installation
-
-To install ChemiCLI, you'll need to have Rust and Cargo installed. If you don't have them yet, you can install Rust via [rustup](https://rustup.rs/).
-
-Once Rust is installed, you can install ChemiCLI by running:
-
-```sh
-cargo install chemicli
-```
+## Usage
 
 ```sh
 chemicli.exe element <ATOMIC_SYMBOL> [OPTIONS]
@@ -70,3 +56,6 @@ ChemiCLI uses a local JSON object containing information about the chemical elem
 
 * Add `mtl` command, i.e `chem mtl ...`, to query about metals.
   * Add `sg` (subgroup) subcommand, i.e `chem mtl -sg` for a list of sub-groups of metals, such as alkali earth metals, and lanthanides.
+
+
+
