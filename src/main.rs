@@ -23,19 +23,22 @@ use std::{collections::HashMap, hash::Hash};
     version = "0.1.0",
     about = "A CLI for querying the periodic table of elements."
 )]
-#[command(next_line_help = true)]
 pub struct Chemicli {
     #[clap(subcommand)]
-    commands: Commands,
+    pub commands: Commands,
 }
 
 #[derive(Debug, Clone, Subcommand)]
 pub enum Commands {
+    #[command(name = "element", override_usage = " chemicli.exe element <ATOMIC_SYMBOL> [OPTIONS]")]
     Element(ElementsArgs),
     #[clap(subcommand)]
+    #[command(name = "metals")]
     Metals(MetalsSubcommands),
+    #[command(name = "metalloids")]
     Metalloids,
     #[clap(subcommand)]
+    #[command(name = "nonmetals")]
     NonMetals,
 }
 
@@ -91,12 +94,6 @@ pub struct PostTransitionMetalsArgs {
     #[clap(short, long)]
     number: bool,
 }
-
-// #[derive(Debug, Clone, Args)]
-// pub struct MetalsArgs {
-//     #[arg(long, short)]
-//     class: bool
-// }
 
 fn main() {
     let periodic_table = create_periodic_table();
@@ -182,10 +179,4 @@ fn get_members(series: String, p_table: &Map<String, Value>) -> Vec<String> {
 
     members
 }
-// fn collect_members<T: FromArgMatches>(series: String, args: T, p_table: &Map<String, Value>) -> Vec<String> {
-//     let mut members = Vec::new();
 
-//     if args.members {
-
-//     }
-// }

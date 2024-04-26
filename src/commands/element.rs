@@ -2,84 +2,85 @@ use crate::utilities::utils::create_periodic_table;
 use clap::Args;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-#[derive(Args, Debug, Clone)]
+#[derive(Debug, Clone, Args,)]
+#[command(args_conflicts_with_subcommands = true)]
 pub struct ElementsArgs {
     pub atomic_symbol: String,
-    #[arg(short = 'n', long, alias("atmn"))]
+    #[arg(short = 'n', long, alias("atmn"), help = "Include the atomic number of a given element.")]
     pub atomic_number: bool,
-    #[arg(long, short = 'w', alias("atmw"))]
+    #[arg(long, short = 'w', alias("atmw"), help = "Include the atomic weight of a given element.")]
     pub atomic_weight: bool,
-    #[arg(long, short = 'l', alias("elvls"))]
+    #[arg(long, short = 'l', alias("elvls"), help = "Include the energy levels of a given element.")]
     pub energy_levels: bool,
-    #[arg(long, short = 'e', alias("eneg"))]
+    #[arg(long, short = 'e', alias("eneg"), help = "Include the electronegativity of a given element.")]
     pub electronegativity: bool,
-    #[arg(long, short)]
+    #[arg(long, short, alias("ser"),  help = "Include the series of a given element.")]
     pub series: bool,
-    #[arg(long, short = 'd', alias("ddisc"))]
+    #[arg(long, short = 'd', alias("ddisc"), help = "Include the discovery date of a given element.")]
     pub date_discovered: bool,
-    #[clap(long, short = 'D', alias("dscvr"))]
+    #[arg(long, short = 'D', alias("dscvr"), help = "Include the discoverer of a given element.")]
     pub discoverer: bool,
-    #[arg(long, short = 'g')]
+    #[arg(long, short = 'g', help = "Include the group of a given element.")]
     pub group: bool,
-    #[arg(long, short = 'p')]
+    #[arg(long, short = 'p', help = "Include the period of a given element.")]
     pub period: bool,
 }
 
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct Element {
-    pub atomic_number: u64,
-    pub atomic_weight: f64,
-    pub energy_levels: Vec<String>, // should be Vec<u16>
-    pub electronegativity: Option<f64>,
-    pub series: String,
-    pub date_discovered: String,
-    pub discoverer: String,
-    pub group: String,
-    pub period: u64,
-}
+// #[derive(Debug, Clone, Deserialize, Serialize)]
+// pub struct Element {
+//     pub atomic_number: u64,
+//     pub atomic_weight: f64,
+//     pub energy_levels: Vec<String>, // should be Vec<u16>
+//     pub electronegativity: Option<f64>,
+//     pub series: String,
+//     pub date_discovered: String,
+//     pub discoverer: String,
+//     pub group: String,
+//     pub period: u64,
+// }
 
-impl Element {
-    pub fn new(
-        atomic_number: u64,
-        atomic_weight: f64,
-        energy_levels: Vec<String>,
-        electronegativity: Option<f64>,
-        series: String,
-        date_discovered: String,
-        discoverer: String,
-        group: String,
-        period: u64,
-    ) -> Self {
-        Self {
-            atomic_number,
-            atomic_weight,
-            energy_levels: energy_levels,
-            electronegativity,
-            series,
-            date_discovered,
-            discoverer,
-            group,
-            period,
-        }
-    }
-}
+// impl Element {
+//     pub fn new(
+//         atomic_number: u64,
+//         atomic_weight: f64,
+//         energy_levels: Vec<String>,
+//         electronegativity: Option<f64>,
+//         series: String,
+//         date_discovered: String,
+//         discoverer: String,
+//         group: String,
+//         period: u64,
+//     ) -> Self {
+//         Self {
+//             atomic_number,
+//             atomic_weight,
+//             energy_levels: energy_levels,
+//             electronegativity,
+//             series,
+//             date_discovered,
+//             discoverer,
+//             group,
+//             period,
+//         }
+//     }
+// }
 
-impl Default for Element {
-    fn default() -> Self {
-        let series = String::from("Nonmetal");
-        Self {
-            atomic_number: 1,
-            atomic_weight: 1.008,
-            energy_levels: vec![String::from("1s1")],
-            electronegativity: Some(2.20),
-            series,
-            date_discovered: String::from("1776"),
-            discoverer: String::from("Henry Cavendish"),
-            group: String::from("1"),
-            period: 1,
-        }
-    }
-}
+// impl Default for Element {
+//     fn default() -> Self {
+//         let series = String::from("Nonmetal");
+//         Self {
+//             atomic_number: 1,
+//             atomic_weight: 1.008,
+//             energy_levels: vec![String::from("1s1")],
+//             electronegativity: Some(2.20),
+//             series,
+//             date_discovered: String::from("1776"),
+//             discoverer: String::from("Henry Cavendish"),
+//             group: String::from("1"),
+//             period: 1,
+//         }
+//     }
+// }
 
 pub fn exec(args: &ElementsArgs) {
     let periodic_table = create_periodic_table();
